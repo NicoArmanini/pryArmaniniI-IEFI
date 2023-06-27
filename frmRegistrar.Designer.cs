@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRegistrar));
             this.btnRegPais = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnBorrar = new System.Windows.Forms.Button();
@@ -50,6 +51,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.lblNum = new System.Windows.Forms.Label();
             this.mrcDatos.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -91,6 +93,7 @@
             // btnRegistrar
             // 
             this.btnRegistrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnRegistrar.Enabled = false;
             this.btnRegistrar.Location = new System.Drawing.Point(25, 433);
             this.btnRegistrar.Margin = new System.Windows.Forms.Padding(4);
             this.btnRegistrar.Name = "btnRegistrar";
@@ -117,6 +120,7 @@
             // 
             this.mrcDatos.BackColor = System.Drawing.Color.Transparent;
             this.mrcDatos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.mrcDatos.Controls.Add(this.lblNum);
             this.mrcDatos.Controls.Add(this.lblPeso);
             this.mrcDatos.Controls.Add(this.txtPuntaje);
             this.mrcDatos.Controls.Add(this.label4);
@@ -160,6 +164,8 @@
             this.txtPuntaje.Name = "txtPuntaje";
             this.txtPuntaje.Size = new System.Drawing.Size(152, 27);
             this.txtPuntaje.TabIndex = 7;
+            this.txtPuntaje.TextChanged += new System.EventHandler(this.txtPuntaje_TextChanged);
+            this.txtPuntaje.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPuntaje_KeyPress);
             // 
             // label4
             // 
@@ -235,6 +241,7 @@
             this.txtEdad.Size = new System.Drawing.Size(152, 27);
             this.txtEdad.TabIndex = 3;
             this.txtEdad.TextChanged += new System.EventHandler(this.txtEdad_TextChanged);
+            this.txtEdad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEdad_KeyPress);
             // 
             // lblEdad
             // 
@@ -253,6 +260,7 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(152, 27);
             this.txtNombre.TabIndex = 0;
+            this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
             // 
             // txtApellido
             // 
@@ -266,6 +274,7 @@
             // 
             // cmbPais
             // 
+            this.cmbPais.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbPais.Enabled = false;
             this.cmbPais.FormattingEnabled = true;
             this.cmbPais.Location = new System.Drawing.Point(173, 137);
@@ -305,6 +314,15 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "&Nombre:";
             // 
+            // lblNum
+            // 
+            this.lblNum.AutoSize = true;
+            this.lblNum.Location = new System.Drawing.Point(22, 303);
+            this.lblNum.Name = "lblNum";
+            this.lblNum.Size = new System.Drawing.Size(107, 20);
+            this.lblNum.TabIndex = 15;
+            this.lblNum.Text = "(130 minimo)";
+            // 
             // frmRegistrar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -318,7 +336,9 @@
             this.Controls.Add(this.btnRegistrar);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.mrcDatos);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmRegistrar";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "El Club del Campeon - Registrar Clientes";
             this.Load += new System.EventHandler(this.frmRegistrar_Load);
             this.mrcDatos.ResumeLayout(false);
@@ -352,6 +372,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblNum;
     }
 }
 

@@ -22,8 +22,6 @@ namespace pryArmaniniI_IEFI
         {
             clsCodigo cls = new clsCodigo();
             cls.CargarPaises(cmbPais);
-
-            MessageBox.Show("Cliente registrado con Exito!!", "", MessageBoxButtons.OK);
         }
 
         private void btnRegistrar_Click(object sender, EventArgs e)
@@ -45,6 +43,9 @@ namespace pryArmaniniI_IEFI
             clsCodigo obj = new clsCodigo();
             obj.RegistrarSocio(txtNombre.Text, txtApellido.Text, cmbPais.Text, Convert.ToInt32(txtEdad.Text),
                                  sexo, Convert.ToDecimal(txtIngreso.Text), Convert.ToInt32(txtPuntaje.Text));
+
+            MessageBox.Show("Cliente registrado con Exito!!", "", MessageBoxButtons.OK);
+
             LimpiarDatos();
         }
 
@@ -125,6 +126,42 @@ namespace pryArmaniniI_IEFI
             }
         }
 
-         
+        private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+            if (txtNombre.Text != "" && txtNombre.Text != null)
+            {
+                txtApellido.Enabled = true;
+               
+            }
+        }
+
+        private void txtPuntaje_TextChanged(object sender, EventArgs e)
+        {
+            if (txtPuntaje.Text != "" && Convert.ToInt32(txtPuntaje.Text) > 129)
+            {
+                btnRegistrar.Enabled = true;
+
+            }
+            else
+            {
+                btnRegistrar.Enabled = false;
+            }
+        }
+
+        private void txtEdad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; // toma solo numeros
+            }
+        }
+
+        private void txtPuntaje_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; 
+            }
+        }
     }
 }

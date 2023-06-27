@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing;
+using System.Data.SqlClient;
 
 namespace pryArmaniniI_IEFI
 {
@@ -104,8 +106,8 @@ namespace pryArmaniniI_IEFI
 
 
                 // verificar si el pais ya existe en la tabla
-                string verificacionSql = "SELECT COUNT(*) FROM PAISES WHERE Pais = @Pais";
-                cmd.CommandText = verificacionSql;
+                string verificarSql = "SELECT COUNT(*) FROM PAISES WHERE Pais = @Pais";
+                cmd.CommandText = verificarSql;
                 cmd.Parameters.AddWithValue("@Pais", Pais);
                 int count = (int)cmd.ExecuteScalar();
 

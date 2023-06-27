@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPais));
             this.btnVolver = new System.Windows.Forms.Button();
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.mrcCompletar = new System.Windows.Forms.GroupBox();
@@ -48,6 +49,7 @@
             this.btnVolver.TabIndex = 7;
             this.btnVolver.Text = "Volver";
             this.btnVolver.UseVisualStyleBackColor = false;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
             // btnRegistrar
             // 
@@ -58,6 +60,7 @@
             this.btnRegistrar.TabIndex = 6;
             this.btnRegistrar.Text = "&Registrar";
             this.btnRegistrar.UseVisualStyleBackColor = false;
+            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
             // mrcCompletar
             // 
@@ -81,6 +84,7 @@
             this.txtPais.Name = "txtPais";
             this.txtPais.Size = new System.Drawing.Size(154, 23);
             this.txtPais.TabIndex = 3;
+            this.txtPais.TextChanged += new System.EventHandler(this.txtPais_TextChanged);
             // 
             // txtCodigo
             // 
@@ -88,6 +92,7 @@
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(154, 23);
             this.txtCodigo.TabIndex = 2;
+            this.txtCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigo_KeyPress);
             // 
             // lblNombre
             // 
@@ -130,7 +135,9 @@
             this.Controls.Add(this.btnRegistrar);
             this.Controls.Add(this.mrcCompletar);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmPais";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registrar Pais";
             this.mrcCompletar.ResumeLayout(false);
             this.mrcCompletar.PerformLayout();
